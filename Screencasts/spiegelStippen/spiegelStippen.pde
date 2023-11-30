@@ -17,9 +17,9 @@ void setup() {
   tekenStippen(gespiegeldeXen, stippenY, stipGrootte, stipKleur);
 }
 
-void tekenStippen(int[] stippenX, int[] stippenY, int stipGrootte, int stipKleur) {
-  for (int i = 0; i < stippenX.length; i++) {
-    tekenStip(stippenX[i], stippenY[i], stipGrootte, stipKleur);
+void tekenStippen(int[] xCoordinaten, int[] yCoordinaten, int grootte, int kleur) {
+  for (int i = 0; i < xCoordinaten.length; i++) {
+    tekenStip(xCoordinaten[i], yCoordinaten[i], grootte, kleur);
   }
 }
 
@@ -34,11 +34,11 @@ void tekenSpiegel(int x) {
   line(x, 0, x, height);
 }
 
-int[] spiegel(int[] x, int xSpiegel) {
+int[] spiegel(int[] xCoordinaten, int xSpiegel) {
   
-  for (int i = 0; i < stippenX.length; i++) {
-      x[i] = xSpiegel + (xSpiegel - x[i]);
+  for (int i = 0; i < xCoordinaten.length; i++) {
+      xCoordinaten[i] = xSpiegel + (xSpiegel - xCoordinaten[i]);
   }
 
-  return x;
+  return xCoordinaten;
 }
