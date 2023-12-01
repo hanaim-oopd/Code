@@ -4,10 +4,12 @@ int aantalVierkanten;
 void setup() {
   size(400, 300);
   aantalVierkanten = 5;
+
   vierkantenX = new int[aantalVierkanten];
   vierkantenY = new int[aantalVierkanten];
   vierkantenGroottes = new int[aantalVierkanten];
   vierkantenKleuren = new int[aantalVierkanten];
+
   for (int i = 0; i < vierkantenX.length; i++) {
     vierkantenGroottes[i] = int(random(10, 40));
     vierkantenX[i] = int(random(vierkantenGroottes[i], width - vierkantenGroottes[i]));
@@ -18,13 +20,18 @@ void setup() {
 
 void draw() {
   background(0);
-  tekenVierkant(vierkantenX, vierkantenY, vierkantenGroottes, vierkantenKleuren);
+  for (int i = 0; i < vierkantenX.length; i++) {
+    tekenVierkant(vierkantenX[i], vierkantenY[i], vierkantenGroottes[i], vierkantenKleuren[i]);
+  }
 }
 
 void mouseClicked() {
-  vierkantenKleuren = #E8E5FF;
-  if (isMuisInVierkant(vierkantenX, vierkantenY, vierkantenGroottes)) {
-    vierkantenKleuren = #4B5BFF;
+
+  for (int i = 0; i < vierkantenX.length; i++) {
+    vierkantenKleuren[i] = #E8E5FF;
+    if (isMuisInVierkant(vierkantenX[i], vierkantenY[i], vierkantenGroottes[i])) {
+      vierkantenKleuren[i] = #4B5BFF;
+    }
   }
 }
 
